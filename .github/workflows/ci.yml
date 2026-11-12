@@ -23,7 +23,7 @@ jobs:
     name: Format, lint and test
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Install system libraries
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends $SYSTEM_PACKAGES
       - uses: dtolnay/rust-toolchain@stable
@@ -38,7 +38,7 @@ jobs:
     name: Minimum Rust version
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Install system libraries
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends $SYSTEM_PACKAGES
       - name: Read rust-version from Cargo.toml
@@ -54,7 +54,7 @@ jobs:
     name: Desktop file, AppStream and Flatpak sources
     runs-on: ubuntu-24.04
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
       - name: Install validators
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends desktop-file-utils appstream
       - run: desktop-file-validate data/io.github.multiflexi.Krizik.desktop
