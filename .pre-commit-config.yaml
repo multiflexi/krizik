@@ -1,0 +1,60 @@
+# Checks run by git before each commit (and the tests before each push).
+# Set up once:
+#   python3 -m venv .venv && .venv/bin/pip install pre-commit
+#   .venv/bin/pre-commit install
+# Run everything by hand: .venv/bin/pre-commit run --all-files
+default_install_hook_types: [pre-commit, pre-push]
+default_stages: [pre-commit]
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-json
+      - id: check-added-large-files
+        args: [--maxkb=500]
+
+  - repo: local
+    hooks:
+      - id: cargo-fmt
+        name: cargo fmt
+        entry: cargo fmt
+        language: system
+        types: [rust]
+        pass_filenames: false
+      - id: cargo-clippy
+        name: cargo clippy
+        entry: cargo clippy --locked --all-targets -- -D warnings
+        language: system
+        files: (\.rs|^Cargo\.(toml|lock))$
+        pass_filenames: false
+      - id: flatpak-cargo-sources
+        name: regenerate flatpak/cargo-sources.json
+        entry: sh -c 'python3 flatpak/generate-cargo-sources.py Cargo.lock > flatpak/cargo-sources.json'
+        language: system
+        files: ^(Cargo\.lock|flatpak/generate-cargo-sources\.py)$
+        pass_filenames: false
+      - id: desktop-file-validate
+        name: desktop-file-validate
+        entry: desktop-file-validate
+        language: system
+        files: \.desktop$
+      - id: appstream-validate
+        name: appstreamcli validate
+        entry: appstreamcli validate --no-net
+        language: system
+        files: \.metainfo\.xml$
+      - id: cargo-test
+        name: cargo test
+        entry: cargo test --locked
+        language: system
+        files: (\.rs|^Cargo\.(toml|lock))$
+        pass_filenames: false
+        stages: [pre-push]

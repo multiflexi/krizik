@@ -1,0 +1,67 @@
+/* Big live readouts */
+.reading-card {
+  padding: 12px 18px 14px 18px;
+}
+
+.reading-value {
+  font-size: 2.4em;
+  font-weight: 800;
+  font-feature-settings: "tnum";
+}
+
+.reading-unit {
+  font-size: 1.3em;
+  font-weight: 700;
+  opacity: 0.6;
+}
+
+.small-card {
+  padding: 8px 12px;
+}
+
+.small-value {
+  font-size: 1.15em;
+  font-weight: 700;
+  font-feature-settings: "tnum";
+}
+
+.numeric-value {
+  font-feature-settings: "tnum";
+}
+
+/* Series colours; shared with the graph (see ui/chart.rs). */
+.series-voltage { color: #3584e4; }
+.series-current { color: #e5a50a; }
+.series-power   { color: #c061cb; }
+.series-data    { color: #2ec27e; }
+.series-cc      { color: #ff7800; }
+.series-meter   { color: #b5835a; }
+
+.series-caption {
+  font-weight: 800;
+  font-size: 0.85em;
+  letter-spacing: 0.04em;
+}
+
+/* Graph lane toggles */
+.lane-toggle {
+  min-width: 34px;
+  padding-left: 7px;
+  padding-right: 7px;
+  font-weight: 700;
+}
+
+.lane-toggle:checked.series-voltage { background-color: alpha(#3584e4, 0.25); color: #3584e4; }
+.lane-toggle:checked.series-current { background-color: alpha(#e5a50a, 0.25); color: #b57e00; }
+.lane-toggle:checked.series-power   { background-color: alpha(#c061cb, 0.25); color: #c061cb; }
+.lane-toggle:checked.series-data    { background-color: alpha(#2ec27e, 0.25); color: #26a269; }
+.lane-toggle:checked.series-cc      { background-color: alpha(#ff7800, 0.25); color: #e66100; }
+.lane-toggle:checked.series-meter   { background-color: alpha(#b5835a, 0.25); color: #986a44; }
+
+.recording-dot {
+  color: #e01b24;
+}
+
+.chart-frame {
+  border-radius: 12px;
+}

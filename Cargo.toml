@@ -1,0 +1,30 @@
+[package]
+name = "krizik"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.92"
+description = "Monitor USB testers and multimeters over Bluetooth and USB on GNOME desktops and Linux phones"
+license = "EUPL-1.2"
+readme = "README.md"
+repository = "https://github.com/multiflexi/krizik"
+homepage = "https://github.com/multiflexi/krizik"
+
+[dependencies]
+gtk = { package = "gtk4", version = "0.11", features = ["v4_12"] }
+adw = { package = "libadwaita", version = "0.9", features = ["v1_5"] }
+bluer = { version = "0.17", features = ["bluetoothd"] }
+tokio = { version = "1", features = ["rt-multi-thread", "time", "sync", "macros"] }
+async-channel = "2"
+pangocairo = "0.22"
+nusb = "0.2"
+futures = "0.3"
+chrono = { version = "0.4", default-features = false, features = ["clock", "std"] }
+log = "0.4"
+env_logger = "0.11"
+
+[build-dependencies]
+glib-build-tools = "0.22"
+
+[profile.release]
+lto = "thin"
+codegen-units = 4

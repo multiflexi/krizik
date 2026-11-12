@@ -1,0 +1,30 @@
+# Dependabot updates Cargo.lock but not the crate list of the offline Flatpak
+# build, so this regenerates flatpak/cargo-sources.json on its pull requests.
+name: Flatpak sources
+
+on:
+  pull_request:
+    paths: [Cargo.lock]
+
+permissions:
+  contents: read
+
+jobs:
+  regenerate:
+    name: Regenerate for Dependabot
+    if: github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.head_ref }}
+      - run: python3 flatpak/generate-cargo-sources.py Cargo.lock > flatpak/cargo-sources.json
+      - name: Commit the regenerated file
+        run: |
+          git diff --quiet && exit 0
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Regenerate Flatpak cargo sources"
+          git push

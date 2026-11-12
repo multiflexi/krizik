@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: cargo
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      # gtk-rs crates are released together and must be updated together.
+      gtk-rs:
+        patterns:
+          - gtk4
+          - libadwaita
+          - pangocairo
+          - glib-build-tools
+      cargo:
+        patterns:
+          - "*"
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      github-actions:
+        patterns:
+          - "*"

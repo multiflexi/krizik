@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.multiflexi.Krizik</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>EUPL-1.2</project_license>
+  <name>Křižík</name>
+  <developer id="io.github.multiflexi">
+    <name>Křižík contributors</name>
+  </developer>
+  <summary>Monitor USB testers and multimeters over Bluetooth and USB</summary>
+  <description>
+    <p>
+      Křižík connects to USB testers and OWON multimeters over Bluetooth LE or a
+      USB cable, on GNOME desktops and Linux phones. A tester and a multimeter can be
+      used at the same time, for example to log a battery's temperature while it charges.
+    </p>
+    <ul>
+      <li>Live voltage, current, power, D+/D−, CC1/CC2, load resistance and temperature</li>
+      <li>Detected fast-charging protocol and requested gear</li>
+      <li>Real-time graph with selectable series and time span</li>
+      <li>Capacity (mAh) and energy (Wh) counting with min/avg/max statistics</li>
+      <li>Alarms and automatic stop, for example when charging has finished</li>
+      <li>Multimeter readings with function, range and HOLD/REL/MIN/MAX state, on the same graph</li>
+      <li>Remote control of the multimeter's buttons and download of its offline recordings</li>
+      <li>USB testers over a cable: ALIENTEK C0, C2 and UT70, FNIRSI FNB58, FNB-C2, FNB48S, FNB48 and C1</li>
+      <li>Recording and export to CSV</li>
+      <li>Renaming the tester's and the multimeter's Bluetooth name</li>
+    </ul>
+    <p>Named after František Křižík (1847–1941), the Czech electrical engineer and inventor.</p>
+    <p>Křižík is an independent project and is not affiliated with ALIENTEK, OWON or FNIRSI.</p>
+  </description>
+  <launchable type="desktop-id">io.github.multiflexi.Krizik.desktop</launchable>
+  <requires>
+    <display_length compare="ge">360</display_length>
+  </requires>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+    <control>touch</control>
+  </supports>
+  <categories>
+    <category>Utility</category>
+    <category>Electronics</category>
+  </categories>
+  <url type="homepage">https://github.com/multiflexi/krizik</url>
+  <url type="bugtracker">https://github.com/multiflexi/krizik/issues</url>
+  <url type="vcs-browser">https://github.com/multiflexi/krizik</url>
+  <screenshots>
+    <screenshot type="default">
+      <caption>Graph of a tester and a multimeter on a shared time line</caption>
+      <image>https://raw.githubusercontent.com/multiflexi/krizik/main/data/screenshots/desktop-graph.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>Live page on the desktop</caption>
+      <image>https://raw.githubusercontent.com/multiflexi/krizik/main/data/screenshots/desktop-live.png</image>
+    </screenshot>
+    <screenshot>
+      <caption>On a Linux phone</caption>
+      <image>https://raw.githubusercontent.com/multiflexi/krizik/main/data/screenshots/phone.png</image>
+    </screenshot>
+  </screenshots>
+  <content_rating type="oars-1.1"/>
+  <releases>
+    <release version="0.1.0" date="2026-11-04"/>
+  </releases>
+</component>

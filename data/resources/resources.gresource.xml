@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/multiflexi/Krizik">
+    <file>style.css</file>
+    <file>icons/scalable/actions/krizik-chart-symbolic.svg</file>
+    <file>icons/scalable/actions/krizik-session-symbolic.svg</file>
+    <file>icons/scalable/actions/krizik-tester-symbolic.svg</file>
+    <file>icons/scalable/actions/krizik-multimeter-symbolic.svg</file>
+  </gresource>
+</gresources>

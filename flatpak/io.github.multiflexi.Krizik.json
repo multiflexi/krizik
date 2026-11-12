@@ -1,0 +1,51 @@
+{
+  "id": "io.github.multiflexi.Krizik",
+  "runtime": "org.gnome.Platform",
+  "runtime-version": "51",
+  "sdk": "org.gnome.Sdk",
+  "sdk-extensions": [
+    "org.freedesktop.Sdk.Extension.rust-stable"
+  ],
+  "command": "krizik",
+  "finish-args": [
+    "--share=ipc",
+    "--socket=wayland",
+    "--socket=fallback-x11",
+    "--device=all",
+    "--system-talk-name=org.bluez"
+  ],
+  "build-options": {
+    "append-path": "/usr/lib/sdk/rust-stable/bin",
+    "env": {
+      "CARGO_HOME": "/run/build/krizik/cargo",
+      "CARGO_NET_OFFLINE": "true"
+    }
+  },
+  "modules": [
+    {
+      "name": "krizik",
+      "buildsystem": "simple",
+      "build-commands": [
+        "cargo build --release --locked --offline",
+        "install -Dm755 target/release/krizik -t /app/bin/",
+        "install -Dm644 data/io.github.multiflexi.Krizik.desktop -t /app/share/applications/",
+        "install -Dm644 data/io.github.multiflexi.Krizik.metainfo.xml -t /app/share/metainfo/",
+        "install -Dm644 data/icons/io.github.multiflexi.Krizik.svg -t /app/share/icons/hicolor/scalable/apps/"
+      ],
+      "sources": [
+        {
+          "type": "dir",
+          "path": "..",
+          "skip": [
+            "target",
+            ".flatpak-builder",
+            "flatpak/build",
+            "flatpak/repo",
+            "flatpak/cargo-sources.json"
+          ]
+        },
+        "cargo-sources.json"
+      ]
+    }
+  ]
+}

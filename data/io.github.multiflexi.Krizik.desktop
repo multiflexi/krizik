@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Křižík
+Comment=Monitor USB testers and multimeters over Bluetooth and USB
+Exec=krizik
+Icon=io.github.multiflexi.Krizik
+Terminal=false
+Type=Application
+Categories=GTK;GNOME;Utility;Electronics;
+Keywords=Krizik;USB;tester;meter;multimeter;DMM;power;voltage;current;temperature;charger;PD;Bluetooth;ALIENTEK;C0;C2;UT70;OWON;B35T;B41T;FNIRSI;FNB58;FNB48;
+StartupNotify=true
+X-Purism-FormFactor=Workstation;Mobile;
+X-KDE-FormFactor=desktop;tablet;handset;

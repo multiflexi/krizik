@@ -1,0 +1,6 @@
+/target
+/.flatpak-builder
+/flatpak/build
+/flatpak/repo
+*.flatpak
+/.venv

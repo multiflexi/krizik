@@ -1,0 +1,15 @@
+# Křižík: let the logged-in user access supported USB testers.
+
+# ALIENTEK C0 and C2 (live data, firmware updates, ATK-C PC software)
+SUBSYSTEM=="usb", ATTR{idVendor}=="2e88", ATTR{idProduct}=="c2c2", TAG+="uaccess"
+# ALIENTEK C2 firmware update mode (bootloader)
+SUBSYSTEM=="usb", ATTR{idVendor}=="2e3c", ATTR{idProduct}=="5780", TAG+="uaccess"
+# ALIENTEK UT70
+SUBSYSTEM=="usb", ATTR{idVendor}=="19f5", ATTR{idProduct}=="6666", TAG+="uaccess"
+# FNIRSI FNB58 and FNB-C2
+SUBSYSTEM=="usb", ATTR{idVendor}=="2e3c", ATTR{idProduct}=="5558", TAG+="uaccess"
+# FNIRSI FNB48S
+SUBSYSTEM=="usb", ATTR{idVendor}=="2e3c", ATTR{idProduct}=="0049", TAG+="uaccess"
+# FNIRSI FNB48 and C1
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="003a", TAG+="uaccess"
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="003b", TAG+="uaccess"
