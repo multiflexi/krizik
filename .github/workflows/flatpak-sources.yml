@@ -17,7 +17,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v7
         with:
           ref: ${{ github.head_ref }}
       - run: python3 flatpak/generate-cargo-sources.py Cargo.lock > flatpak/cargo-sources.json
